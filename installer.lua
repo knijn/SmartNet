@@ -1,4 +1,4 @@
--- https://api.github.com/repos/Ale32bit-CC/SmartNet/git/trees/main?recursive=1
+-- https://api.github.com/repos/knijn/SmartNet/git/trees/main?recursive=1
 
 print("SmartNet by AlexDevs")
 
@@ -13,7 +13,7 @@ if fs.exists("config.lua") then
 end
 
 print("Fetching files list...")
-local h, err = http.get("https://api.github.com/repos/Ale32bit-CC/SmartNet/git/trees/main?recursive=1")
+local h, err = http.get("https://api.github.com/repos/knijn/SmartNet/git/trees/main?recursive=1")
 if not h then
     printError(err)
     return false
@@ -27,7 +27,7 @@ print("Downloading files...")
 for k, v in ipairs(files.tree) do
     if v.type == "blob" then
         print("Downloading " .. v.path)
-        local h, err = http.get("https://raw.githubusercontent.com/Ale32bit-CC/SmartNet/main/" .. v.path)
+        local h, err = http.get("https://raw.githubusercontent.com/knijn/SmartNet/main/" .. v.path)
         if h then
             local content = h.readAll()
             h.close()
